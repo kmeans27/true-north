@@ -1,0 +1,25 @@
+{
+  "name": "true-north",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "TRUE NORTH — the daily chart. One hand-drawn sea chart a day, five things left to your eye.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "lint:prompts": "node scripts/lint-prompts.mjs"
+  },
+  "devDependencies": {
+    "jsdom": "^25.0.1",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.10",
+    "vitest": "^2.1.4"
+  },
+  "allowScripts": {
+    "esbuild@0.21.5": true
+  }
+}
