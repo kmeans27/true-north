@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#EFE3C8" />
+    <title>Off the chart — True North</title>
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <style>
+      :root {
+        --parchment: #efe3c8;
+        --panel: #f5ecd8;
+        --ink: #1e2a38;
+        --soft: #1e2a38b3;
+        --accent: #2f5d62;
+        --edge: #1e2a3822;
+        color-scheme: light;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --parchment: #171a20;
+          --panel: #1b1f26;
+          --ink: #d9d2c2;
+          --soft: #d9d2c2b3;
+          --accent: #7ea8ac;
+          --edge: #d9d2c21f;
+          color-scheme: dark;
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      body {
+        display: grid;
+        place-items: center;
+        padding: 1.5rem;
+        background: var(--parchment);
+        color: var(--ink);
+        font-family: ui-serif, "Iowan Old Style", Palatino, Georgia, "Times New Roman", serif;
+        line-height: 1.45;
+      }
+      .card {
+        max-width: 30rem;
+        padding: 2.4rem 2rem;
+        text-align: center;
+        background: var(--panel);
+        border: 1px solid var(--edge);
+        border-radius: 3px;
+        box-shadow: 0 12px 40px #0000000f;
+      }
+      .rose {
+        display: block;
+        width: 84px;
+        height: 84px;
+        margin: 0 auto 1.2rem;
+        color: var(--ink);
+      }
+      h1 {
+        margin: 0 0 0.2rem;
+        font-size: 1.9rem;
+        font-weight: 400;
+      }
+      .kicker {
+        margin: 0 0 0.9rem;
+        color: var(--accent);
+        font-size: 0.78rem;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+      }
+      p {
+        margin: 0 0 1.6rem;
+        color: var(--soft);
+        font-size: 1.05rem;
+      }
+      a {
+        display: inline-block;
+        min-height: 44px;
+        padding: 0.7rem 1.4rem;
+        color: var(--parchment);
+        background: var(--accent);
+        border-radius: 2px;
+        text-decoration: none;
+        letter-spacing: 0.04em;
+      }
+      a:focus-visible {
+        outline: 2px solid var(--ink);
+        outline-offset: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <!-- the icon is inlined so this page has no requests to break -->
+      <svg class="rose" viewBox="0 0 128 128" aria-hidden="true" focusable="false">
+        <g transform="translate(64 64)">
+          <circle r="43" fill="none" stroke="currentColor" stroke-width="3" opacity="0.32" />
+          <g fill="currentColor" opacity="0.8">
+            <path d="M0 -25 L5.5 0 L0 4.5 L-5.5 0 Z" transform="rotate(45)" />
+            <path d="M0 -25 L5.5 0 L0 4.5 L-5.5 0 Z" transform="rotate(135)" />
+            <path d="M0 -25 L5.5 0 L0 4.5 L-5.5 0 Z" transform="rotate(225)" />
+            <path d="M0 -25 L5.5 0 L0 4.5 L-5.5 0 Z" transform="rotate(315)" />
+          </g>
+          <g fill="currentColor">
+            <path d="M0 -38 L9 0 L0 7 L-9 0 Z" transform="rotate(90)" />
+            <path d="M0 -38 L9 0 L0 7 L-9 0 Z" transform="rotate(180)" />
+            <path d="M0 -38 L9 0 L0 7 L-9 0 Z" transform="rotate(270)" />
+          </g>
+          <path d="M0 -40 L9 0 L0 7 L-9 0 Z" fill="var(--accent)" />
+          <circle r="4.6" fill="var(--accent)" />
+        </g>
+      </svg>
+      <p class="kicker">True North</p>
+      <h1>Off the chart</h1>
+      <p>
+        There is no such water here. The chart you asked for was never drawn — or the
+        tide took it.
+      </p>
+      <a id="home" href="/">Back to today&rsquo;s chart</a>
+    </main>
+    <script>
+      // Works at a domain root and under a GitHub Pages project sub-path.
+      (function () {
+        var seg = location.pathname.split("/").filter(Boolean);
+        var root = "/";
+        if (location.hostname.slice(-11) === ".github.io" && seg.length > 1) root = "/" + seg[0] + "/";
+        document.getElementById("home").setAttribute("href", root);
+      })();
+    </script>
+  </body>
+</html>

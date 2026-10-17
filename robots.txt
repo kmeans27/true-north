@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+# One chart a day, fixed by eye. Nothing here needs crawling twice.

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="True North: a compass rose">
+  <!-- full-bleed parchment: safe as a maskable icon, pretty as a favicon -->
+  <rect width="128" height="128" fill="#efe3c8"/>
+  <g transform="translate(64 64)">
+    <circle r="43" fill="none" stroke="#1e2a38" stroke-width="2.2" opacity="0.38"/>
+    <circle r="36" fill="none" stroke="#2f5d62" stroke-width="0.9" opacity="0.4"/>
+    <!-- the four intermediate points, shortest -->
+    <g fill="#1e2a38" opacity="0.8">
+      <path d="M0 -25 L5.5 0 L0 4.5 L-5.5 0 Z" transform="rotate(45)"/>
+      <path d="M0 -25 L5.5 0 L0 4.5 L-5.5 0 Z" transform="rotate(135)"/>
+      <path d="M0 -25 L5.5 0 L0 4.5 L-5.5 0 Z" transform="rotate(225)"/>
+      <path d="M0 -25 L5.5 0 L0 4.5 L-5.5 0 Z" transform="rotate(315)"/>
+    </g>
+    <!-- east, south, west -->
+    <g fill="#1e2a38">
+      <path d="M0 -38 L9 0 L0 7 L-9 0 Z" transform="rotate(90)"/>
+      <path d="M0 -38 L9 0 L0 7 L-9 0 Z" transform="rotate(180)"/>
+      <path d="M0 -38 L9 0 L0 7 L-9 0 Z" transform="rotate(270)"/>
+    </g>
+    <!-- north, in the traditional red -->
+    <path d="M0 -40 L9 0 L0 7 L-9 0 Z" fill="#8c2f2f"/>
+    <circle r="4.6" fill="#b8860b"/>
+  </g>
+</svg>
