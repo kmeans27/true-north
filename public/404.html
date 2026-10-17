@@ -55,11 +55,12 @@
         border-radius: 3px;
         box-shadow: 0 12px 40px #0000000f;
       }
-      img {
+      .rose {
+        display: block;
         width: 84px;
         height: 84px;
-        display: block;
         margin: 0 auto 1.2rem;
+        color: var(--ink);
       }
       h1 {
         margin: 0 0 0.2rem;
@@ -96,14 +97,41 @@
   </head>
   <body>
     <main class="card">
-      <img src="/icon.svg" alt="" width="84" height="84" />
+      <!-- the icon is inlined so this page has no requests to break -->
+      <svg class="rose" viewBox="0 0 128 128" aria-hidden="true" focusable="false">
+        <g transform="translate(64 64)">
+          <circle r="43" fill="none" stroke="currentColor" stroke-width="3" opacity="0.32" />
+          <g fill="currentColor" opacity="0.8">
+            <path d="M0 -25 L5.5 0 L0 4.5 L-5.5 0 Z" transform="rotate(45)" />
+            <path d="M0 -25 L5.5 0 L0 4.5 L-5.5 0 Z" transform="rotate(135)" />
+            <path d="M0 -25 L5.5 0 L0 4.5 L-5.5 0 Z" transform="rotate(225)" />
+            <path d="M0 -25 L5.5 0 L0 4.5 L-5.5 0 Z" transform="rotate(315)" />
+          </g>
+          <g fill="currentColor">
+            <path d="M0 -38 L9 0 L0 7 L-9 0 Z" transform="rotate(90)" />
+            <path d="M0 -38 L9 0 L0 7 L-9 0 Z" transform="rotate(180)" />
+            <path d="M0 -38 L9 0 L0 7 L-9 0 Z" transform="rotate(270)" />
+          </g>
+          <path d="M0 -40 L9 0 L0 7 L-9 0 Z" fill="var(--accent)" />
+          <circle r="4.6" fill="var(--accent)" />
+        </g>
+      </svg>
       <p class="kicker">True North</p>
       <h1>Off the chart</h1>
       <p>
         There is no such water here. The chart you asked for was never drawn — or the
         tide took it.
       </p>
-      <a href="/">Back to today&rsquo;s chart</a>
+      <a id="home" href="/">Back to today&rsquo;s chart</a>
     </main>
+    <script>
+      // Works at a domain root and under a GitHub Pages project sub-path.
+      (function () {
+        var seg = location.pathname.split("/").filter(Boolean);
+        var root = "/";
+        if (location.hostname.slice(-11) === ".github.io" && seg.length > 1) root = "/" + seg[0] + "/";
+        document.getElementById("home").setAttribute("href", root);
+      })();
+    </script>
   </body>
 </html>

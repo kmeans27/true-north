@@ -30,6 +30,7 @@ npm run preview    # serve the built site
 npm test           # vitest (unit + jsdom smoke)
 npm run typecheck  # tsc --noEmit
 npm run lint:prompts
+npm run deploy     # build, then publish dist/ to the gh-pages branch
 ```
 
 No runtime dependencies: Vite, TypeScript and Vitest are dev-only.
@@ -42,6 +43,7 @@ public/               icon.svg, icon-*.png, og.png, manifest, 404.html, sw.js, r
 scripts/
   lint-prompts.mjs    the copy linter: <= 46 chars, no numerals, one sentence
   make-og.ts          authoring tool: renders the social card from a real chart
+  deploy.mjs          publishes dist/ to the gh-pages branch
 src/
   main.ts             boot, routing, midnight ticker, cross-tab safety, SW registration
   state.ts            Store schema (truenorth:v1), streak + one-attempt logic, migration
@@ -95,10 +97,12 @@ Any static host. The app is a plain folder of files; `index.html` is the entry a
 
 - **Cloudflare Pages / Netlify:** publish `dist`. Add a SPA rewrite (`/* -> /index.html`) so
   deep links survive, and keep `404.html` for hard misses.
-- **GitHub Pages:** publish `dist` to the Pages branch. If it is served from a sub-path, set
-  `base` in `vite.config.ts` and adjust the absolute `/icon.svg` link in `public/404.html`.
-  `.github/workflows/deploy.yml` builds, tests and deploys `dist` on every push to `main`;
-  switch the repo's Pages source to **GitHub Actions** once and it takes over from there.
+- **GitHub Pages:** `npm run deploy` builds and force-pushes `dist/` to a `gh-pages` branch;
+  set the repo's Pages source to that branch once and every deploy is live at
+  `https://<user>.github.io/true-north/`. No CI runner is needed. (An Actions workflow that
+  builds, tests and deploys `dist` is an easy swap-in if your account can run Actions.) If the
+  site is served from a sub-path, that is fine with the default `base: "./"`; `public/404.html`
+  already resolves its link for both a domain root and a Pages sub-path.
 
 ---
 
